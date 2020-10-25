@@ -81,13 +81,12 @@
 			
 			<span style="font-size: 12px;">
 				<?php 
-					$id = "profile_pic";
 					$pro_pic = $user_data['profile_image'];
 					$first = $user_data['firstname'][0];
 					$last = $user_data['lastname'][0];
 					$dot = '.';
 					if (empty($pro_pic)) {
-						echo"<img id=$id src='default_profile_image.php?text=$first$dot$last'>";
+						echo"<img id='profile_pic' src='default_profile_image.php?text=$first$dot$last'>";
 					}else
 					{
 						echo'<img id="profile_pic" src="data:image/jpeg;base64,' . base64_encode($pro_pic) . '"/>';

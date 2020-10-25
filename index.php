@@ -46,7 +46,7 @@
 		Fakebook
 	</title>
 </head>
-<link rel="stylesheet" type="text/css" href="css/styles2.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 <body style="font-family: tahoma; background-color: #d0d8e4">
 
@@ -65,28 +65,25 @@
 			<div style="min-height: 400px; flex: 1">
 
 				
-				<div id="my_info">
-					
-					<?php 
-						error_reporting(-1);
-					    ini_set('display_errors', 'On');
+				<div id="my_info" style="min-height: 400px; margin-top: 20px; color: #405d9b; padding: 8px; text-align: center; font-size: 20px;">
+					<span>
+						<?php 
+							error_reporting(-1);
+						    ini_set('display_errors', 'On');
 
-						$userid 	= $_SESSION['fakebook_userid'];
-						$pro_pic 	= $user_data['profile_image'];
-						$first 		= $user_data['firstname'][0];
-						$last 		= $user_data['lastname'][0];
-						$dot = '.';
-						if (empty($pro_pic)) {
-							echo"<img id='profile_pic' src='default_profile_image.php?text=$first$dot$last'>";
-						}else
-						{
-							echo'<img id="profile_pic" src="data:image/jpeg;base64,' . base64_encode($pro_pic) . '"/>';
-						}						
-					?>
-
-
-
-					
+							$userid 	= $_SESSION['fakebook_userid'];
+							$pro_pic 	= $user_data['profile_image'];
+							$first 		= $user_data['firstname'][0];
+							$last 		= $user_data['lastname'][0];
+							$dot = '.';
+							if (empty($pro_pic)) {
+								echo"<img id='profile_pic'style='margin-top: 0px;' src='default_profile_image.php?text=$first$dot$last'>";
+							}else
+							{
+								echo'<img id="profile_pic" style= "margin-top: 0px;" src="data:image/jpeg;base64,' . base64_encode($pro_pic) . '"/>';
+							}						
+						?>					
+					</span>
 					<br>
 					<a href="profile.php" style=" text-decoration: none;"><?php  echo $user_data['firstname'] . " <br>" . $user_data['lastname']?></a>
 					

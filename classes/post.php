@@ -22,7 +22,7 @@ class Post
 			if (!empty(is_uploaded_file($data2["file"]["tmp_name"]))) 
 			{
 				// checking the image size
-				if ($size > 1024 * 268) {
+				if ($size > (1024 * 1024) * 10) {
 					$error .= "image is too big <br> ";
 					return $error;
 				}else{
@@ -62,7 +62,7 @@ class Post
 	public function get_posts($id)
 	{
 
-		$query = "select * from posts where userid = '$id' order by id desc limit 10" ;
+		$query = "select * from posts where userid = '$id' order by id desc" ;
 
 		$DB = new database();
 		$result = $DB->read($query);
@@ -78,7 +78,7 @@ class Post
 		public function timeline()
 	{
 
-		$query = "select * from posts order by date desc limit 20" ;
+		$query = "select * from posts order by date desc" ;
 
 		$DB = new database();
 		$result = $DB->read($query);
