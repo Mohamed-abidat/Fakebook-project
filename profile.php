@@ -68,7 +68,16 @@
 	<div id="" style="width: 1000px; min-height: 400px;  margin: auto;">
 			
 		<div style="background-color: white; text-align: center; color: #405d9b">
-			<img src="img/mountain.jpg" style="width: 100%;">
+			<?php 
+					$cover_pic = $user_data['cover_image'];
+				if (empty($cover_pic)) {
+						echo'<img src="img/mountain.jpg" style="width: 100%;">';
+					}else
+					{
+						echo'<img src="data:image/jpeg;base64,' . base64_encode($cover_pic) . '" style="width: 100%;"/>';
+						//echo"<img id=$id src='$pro_pic' style''>";
+					}
+			?>
 			
 			<span style="font-size: 12px;">
 				<?php 
@@ -86,8 +95,11 @@
 					}
 				?>
 					<br>
-				<a style="text-decoration: none; color: #a0f;" href="change_profile_image.php">
+				<a style="text-decoration: none; color: #a0f;" href="change_image.php?change=profile">
 					Change P.Picture
+				</a>|
+				<a style="text-decoration: none; color: #a0f;" href="change_image.php?change=cover">
+					Change Cover
 				</a>
 			</span>
 			<div style="font-size: 20px;"> <?php  echo $user_data['firstname'] . " " . $user_data['lastname']?></div>
