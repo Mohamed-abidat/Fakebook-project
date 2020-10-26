@@ -3,11 +3,11 @@
 class Post
 {
 
-	public function create_post($userid, $data, $data2)
+	public function create_post($userid, $data, $data2, $pp, $cp)
 	{
 		$error = "";
 
-		// checking if the user types somthing or uploads an image (at least done one of the two things)
+		// checking if the user has typed somthing or uploaded an image (at least had done one of the two things)
 		if (!empty($data['post']) || !empty(is_uploaded_file($data2["file"]["tmp_name"])))
 		{	
 		
@@ -26,7 +26,17 @@ class Post
 					$error .= "image is too big <br> ";
 					return $error;
 				}else{
-					$query = "insert into posts (postid, userid, post, has_image, image) values('$postid', '$userid', '$post', '1', '$image')";	
+
+					$query = "insert into posts (postid, userid, post, has_image, image) values('$postid', '$userid', '$post', '1', '$image')";
+
+					if ($pp == '1') 
+					{
+						$query = "insert into posts (postid, userid, post, has_image, image, is_pp) values('$postid', '$userid', '$post', '1', '$image', '1')";
+					}
+					if ($cp == '1') 
+					{
+						$query = "insert into posts (postid, userid, post, has_image, image, is_cp) values('$postid', '$userid', '$post', '1', '$image', '1')";
+					}	
 				}
 				
 			}else

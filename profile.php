@@ -17,7 +17,7 @@
 	{
 		$post = new Post();
 		$id = $_SESSION['fakebook_userid'];
-		$errors = $post->create_post($id, $_POST, $_FILES);
+		$errors = $post->create_post($id, $_POST, $_FILES, 0, 0);
 
 		if ($errors == "") 
 		{
@@ -119,7 +119,7 @@
 			<!--friends suggestion -->
 				
 				<div id="suggestions" style= "min-height: 100px; flex: 1">
-				People you may know <br>
+				FRIENDS <br><br>
 				<?php
 					if ($suggestions) 
 					{

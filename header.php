@@ -5,6 +5,13 @@
 			&nbsp &nbsp
 
 			<input type="text" name="" id="search_box" placeholder="Search">
+			<select name="search_type" style="	height: 30px; width: 100px; border-radius: 4px; border: solid 1px #ccc;	padding: 4px; font-size: 14px;">
+
+				<option>Sentence</option>
+				<option>Booleans</option>
+				<option>Relevance</option>
+
+			</select>
 			<a href="profile.php">
 				<?php
 						error_reporting(-1);

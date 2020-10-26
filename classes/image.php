@@ -128,4 +128,22 @@ class Image
 		}
 		
 	}
+
+
+	public function thumbnail($image, $width, $height, $type)
+	{
+
+		$thumbnail = exif_thumbnail($image, $width, $height, $type);
+
+		if ($thumbnail!==false) 
+		{
+		    header('Content-type: ' .image_type_to_mime_type($type));
+		    echo $thumbnail;
+		}else
+		{
+		    // if no thumbnail is available return the image itself
+		    header('Content-type: ' .image_type_to_mime_type($type));
+		    echo $image;
+		}
+	}
 }

@@ -23,11 +23,27 @@
 			}						
 		?>	
 	</div>
-	<div>
+	<div style="width: 100%;">
 		<div style="font-weight: bold; color: #405d9b; margin-top: 20px;margin-bottom: 20px;font-size: 19px">
 			<?php
-				echo $ROW_USER['firstname'] . " " . $ROW_USER['lastname']; 
 
+
+				echo $ROW_USER['firstname'] . " " . $ROW_USER['lastname'];
+
+				$gender = " his";
+				
+				if ($ROW_USER['gender'] == "Female") {
+					$gender = " her";
+				}
+				
+				if ($ROW['is_pp']) 
+				{
+					echo '<span style = "font-weight: normal; color: #aaa ;font-size: 16px; "> updated' . $gender . ' profile picture</span>'; 
+				}elseif ($ROW['is_cp']) 
+				{
+					echo '<span style = "font-weight: normal; color: #aaa; font-size: 16px; "> updated' . $gender . ' cover picture</span>'; 
+				}
+				
 			?>
 		</div>
 		<br>
@@ -48,6 +64,9 @@
 			<a href="">Like</a> . <a href="">Comment</a> . 
 			<sapn style= "color: #999"> 
 			<?php echo $ROW['date'] ?>
+			</span>
+			<sapn style= "color: #999; float: right;"> 
+				Edit . Delete
 			</span>
 		</span>
 	</div>

@@ -27,8 +27,9 @@
           
           return false;
         }else
-        {
-            $img_blob = file_get_contents($_FILES['file']['tmp_name']);
+        {	
+
+            
             $file = $_FILES['file']['tmp_name'];
             $size = $_FILES['file']['size'];
             $type = $_FILES['file']['type'];
@@ -45,21 +46,31 @@
 
             		if ($change == "cover") 
             		{
+
+			            $post = new Post();
+						$post->create_post($userid, $_POST, $_FILES, 0, 1);
+
             			$image = new Image();
             			$image->crop_image($file,1366,488);
-            			$imageblob = file_get_contents($file);
-            			$query = "UPDATE users SET cover_image= '" . addslashes($imageblob). "' WHERE userid = '$userid'";	
+            			$image_blob = file_get_contents($file);
+            			$query = "UPDATE users SET cover_image= '" . addslashes($image_blob). "' WHERE userid = '$userid'";	
             		}else
             		{
+
+			            $post = new Post();
+						$post->create_post($userid, $_POST, $_FILES, 1, 0);
+
             			$image = new Image();
             			$image->crop_image($file,800,800);	
-            			$imageblob = file_get_contents($file);
-            			$query = "UPDATE users SET profile_image= '" . addslashes($imageblob). "' WHERE userid = '$userid'";
+            			$image_blob = file_get_contents($file);
+            			$query = "UPDATE users SET profile_image= '" . addslashes($image_blob). "' WHERE userid = '$userid'";
 
             		}
             		           		
             		$DB = new Database();
             		$result = $DB->save($query);
+            		
+
 	            	header("Location: profile.php");
     	        	die;
             	}else
