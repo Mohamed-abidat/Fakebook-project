@@ -63,24 +63,26 @@
 
 				
 				<div id="my_info" style="min-height: 400px; margin-top: 20px; color: #405d9b; padding: 8px; text-align: center; font-size: 20px;">
-					<span>
-						<?php 
-						
-							$userid 	= $_SESSION['fakebook_userid'];
-							$pro_pic 	= $user_data['profile_image'];
-							$first 		= $user_data['firstname'][0];
-							$last 		= $user_data['lastname'][0];
-							$dot = '.';
-							if (empty($pro_pic)) {
-								echo"<img id='profile_pic'style='margin-top: 0px;' src='default_profile_image.php?text=$first$dot$last'>";
-							}else
-							{
-								echo'<img id="profile_pic" style= "margin-top: 0px;" src="data:image/jpeg;base64,' . base64_encode($pro_pic) . '"/>';
-							}						
-						?>					
-					</span>
+					<a href="profile.php" style=" text-decoration: none;">
+						<span>
+							<?php 
+							
+								$userid 	= $_SESSION['fakebook_userid'];
+								$pro_pic 	= $user_data['profile_image'];
+								$first 		= $user_data['firstname'][0];
+								$last 		= $user_data['lastname'][0];
+								$dot = '.';
+								if (empty($pro_pic)) {
+									echo"<img id='profile_pic'style='margin-top: 0px;' src='default_profile_image.php?text=$first$dot$last'>";
+								}else
+								{
+									echo'<img id="profile_pic" style= "margin-top: 0px;" src="data:image/jpeg;base64,' . base64_encode($pro_pic) . '"/>';
+								}						
+							?>					
+						</span>
+					</a>
 					<br>
-					<a href="profile.php" style=" text-decoration: none;"><?php  echo htmlspecialchars($user_data['firstname']) . " <br>" . htmlspecialchars($user_data['lastname']) ?></a>
+					<a href="profile.php" style=" text-decoration: none; color: #405d9b; "><?php  echo htmlspecialchars($user_data['firstname']) . " <br>" . htmlspecialchars($user_data['lastname']) ?></a>
 					
 				</div>
 			</div>

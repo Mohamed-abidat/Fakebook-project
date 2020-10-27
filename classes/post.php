@@ -85,7 +85,8 @@ class Post
 			return false;
 		}
 	}
-		public function timeline()
+
+	public function timeline()
 	{
 
 		$query = "select * from posts order by date desc" ;
@@ -100,6 +101,30 @@ class Post
 		{
 			return false;
 		}
+	}
+
+	public function like_post($id, $type, $userid)
+	{
+	//	if ($tpe == "post") {
+//
+//			// increment the likes in the posts table
+//			$query = "update posts set likes = likes + 1 where postid = '$id' limit 1";
+//			$DB = new Database();
+//			$DB->save($query);
+//
+//			// save like details
+//			$query = "select likes from likes where type = 'post' && contentid = '$id' limit 1";
+//			$result = $DB->read($query);
+//
+//			if (is_array($result)) {
+//				
+//			}else
+//			{
+//				$arr[] = $
+//				$query = "insert into likes (type, contentid, likes) values ('$type', '$id', '$likes')";
+//			}
+//		}
+		
 	}
 
 }

@@ -49,29 +49,45 @@
 					
 				?>
 			</div>
-		<br>
+		
 		<?php
 			if ($ROW['has_image'] == 0) {
+				echo "<br>";
 				echo'<span style="margin-left: -70px;margin-top: -20px;">' . htmlspecialchars($ROW['post']) . '</span>';
 			}else
 			{
 
 				$image = $ROW['image'];
-				echo'<span style="margin-left: -70px;margin-top: 20px;">' . htmlspecialchars($ROW['post']) . '</span>';
-				echo "<br><br>";
+				if (!empty($ROW['post'])) 
+				{
+					echo "<br>";
+					echo'<span style="margin-left: -70px;margin-top: 20px;">' . htmlspecialchars($ROW['post']) . '</span>';
+					echo "<br><br>";
+				}
 				echo'<img src="data:image/jpeg;base64,' . base64_encode($image) . '" style="width: 700px; margin-left: -70px;"/>'; 
 			} 
 		?>
 		<br><br>
 		<span style="margin-left: -70px">
-			<a href="" style="text-decoration: none; color: #405d9b;">Like</a> . <a style="text-decoration: none; color: #405d9b;" href="">Comment</a> . 
+			<a 	href="like.php?type=post&id=<?php echo $ROW['postid'] ?>" 
+				style="text-decoration: none; color: #405d9b;">
+				Like</a> . 
+			<a 	style="text-decoration: none; color: #405d9b;" 
+				href="">
+				Comment</a> . 
 			<sapn style= "color: #999"> 
 			<?php echo $ROW['date'] ?>
 			</span>
 			<?php  
 				if ($USER['userid'] == $ROW_USER['userid']) 
 				{
-					echo "<sapn style= 'color: #999; float: right;'> Edit . Delete </span>";
+				//	<a href="" style="text-decoration: none; color: #405d9b;">
+					echo   "<sapn style= 'color: #999; float: right;'> 
+							<a href='' style='text-decoration: none; color: #405d9b;'> 
+							Edit </a> . 
+							<a href='' style='text-decoration: none; color: #405d9b;'>
+							Delete </a>
+							</span>";
 				}
 
 			?>
