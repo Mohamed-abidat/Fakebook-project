@@ -136,21 +136,22 @@
 		<div style="display: flex;">
 
 			<!--friends suggestion -->
-				
-				<div id="suggestions" style= "min-height: 100px; flex: 1">
-				FRIENDS <br><br>
-				<?php
-					if ($suggestions) 
-					{
-						foreach ($suggestions as $SUGGESTION_ROW) 
+			<div style="flex: 1;">	
+				<div id="suggestions">
+					FRIENDS <br><br>
+					<?php
+						if ($suggestions) 
 						{
-							
-							include("user.php");		
-						}
-					} 	 
-				?>
+							foreach ($suggestions as $SUGGESTION_ROW) 
+							{
+								
+								include("user.php");		
+							}
+						} 	 
+					?>
+					<br style="clear: both;">
+				</div>
 			</div>
-
 			<!--posts area -->
 			<div style="min-height: 400px;flex: 3; padding: 20px; padding-right: 0px;">
 

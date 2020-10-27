@@ -28,10 +28,10 @@
 					$last 		= $USER['lastname'][0];
 					$dot = '.';
 					if (empty($pro_pic)) {
-						echo"<img src='default_profile_image.php?text=$first$dot$last' style='margin-top: 5px; width: 40px; float: right;border-radius: 50%; '>";
+						echo"<img src='default_profile_image.php?text=$first$dot$last' style='margin-top: 5px; width: 40px; float: right; '>";
 					}else
 					{
-						echo'<img src="data:image/jpeg;base64,' . base64_encode($pro_pic) . '" style="margin-top: 5px; width: 40px; float: right;border-radius: 50%;"/>';
+						echo'<img src="data:image/jpeg;base64,' . base64_encode($pro_pic) . '" style="margin-top: 5px; width: 40px; float: right;"/>';
 					}						
 				?>
 			</a>
