@@ -1,15 +1,11 @@
 <?php 
 	
-	session_start();
-	//print_r($_SESSION);
+	include("classes/classes.php");
 
-	include("classes/connect.php");
-	include("classes/login.php");
-	include("classes/users.php");
-	include("classes/post.php");
 	
 	$login = new Login();
 	$user_data = $login->check_login($_SESSION ['fakebook_userid']);
+	$USER = $user_data;	
 
 
 	// Posting starts here:
@@ -68,9 +64,7 @@
 				<div id="my_info" style="min-height: 400px; margin-top: 20px; color: #405d9b; padding: 8px; text-align: center; font-size: 20px;">
 					<span>
 						<?php 
-							error_reporting(-1);
-						    ini_set('display_errors', 'On');
-
+						
 							$userid 	= $_SESSION['fakebook_userid'];
 							$pro_pic 	= $user_data['profile_image'];
 							$first 		= $user_data['firstname'][0];
@@ -85,7 +79,7 @@
 						?>					
 					</span>
 					<br>
-					<a href="profile.php" style=" text-decoration: none;"><?php  echo $user_data['firstname'] . " <br>" . $user_data['lastname']?></a>
+					<a href="profile.php" style=" text-decoration: none;"><?php  echo htmlspecialchars($user_data['firstname']) . " <br>" . htmlspecialchars($user_data['lastname']) ?></a>
 					
 				</div>
 			</div>

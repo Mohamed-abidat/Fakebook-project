@@ -1,16 +1,26 @@
 <?php 
 	
-	session_start();
-	//print_r($_SESSION);
-
-	include("classes/connect.php");
-	include("classes/login.php");
-	include("classes/users.php");
-	include("classes/post.php");
+	include("classes/classes.php");
 	
 	$login = new Login();
 	$user_data = $login->check_login($_SESSION ['fakebook_userid']);
+	$USER = $user_data;				
+							// white listing to avoid sql injection
+	if (isset($_GET['id']) && is_numeric($_GET['id'])) 
+	{
 
+		$profile = new Profile();
+		$profile_data = $profile->get_profile($_GET['id']);
+		
+		if (is_array($profile_data)) 
+		{
+
+			$user_data = $profile_data[0];
+		}
+			
+
+	}
+		
 
 	// Posting starts here:
 	if ($_SERVER['REQUEST_METHOD'] == "POST")
@@ -35,7 +45,7 @@
 
 	//collecting posts:
 	$post = new Post();
-	$id = $_SESSION['fakebook_userid'];
+	$id = $user_data['userid'];
 
 	$posts = $post->get_posts($id);
 
@@ -101,7 +111,7 @@
 					Change Cover
 				</a>
 			</span>
-			<div style="font-size: 20px;"> <?php  echo $user_data['firstname'] . " " . $user_data['lastname']?></div>
+			<div style="font-size: 20px;"> <?php  echo htmlspecialchars($user_data['firstname']) . " " .  htmlspecialchars($user_data['lastname']) ?></div>
 			<br>
 			
 			<div id="menu_button">

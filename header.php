@@ -17,10 +17,10 @@
 						error_reporting(-1);
 					    ini_set('display_errors', 'On');
 
-						$userid 	= $user_data['userid'];
-						$pro_pic 	= $user_data['profile_image'];;
-						$first 		= $user_data['firstname'][0];
-						$last 		= $user_data['lastname'][0];
+						$userid 	= $USER['userid'];
+						$pro_pic 	= $USER['profile_image'];;
+						$first 		= $USER['firstname'][0];
+						$last 		= $USER['lastname'][0];
 						$dot = '.';
 						if (empty($pro_pic)) {
 							echo"<img src='default_profile_image.php?text=$first$dot$last' style='margin-top: 5px; width: 40px; float: right;border-radius: 50%; '>";

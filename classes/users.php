@@ -40,7 +40,7 @@ class User
 	}	public function get_suggestions($id)
 	{
 
-		$query = "select * from users where userid != '$id' limit 6";
+		$query = "select * from users where userid != '$id'";
 		$DB = new Database();
 		$result = $DB->read($query);
 

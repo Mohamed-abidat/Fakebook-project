@@ -19,7 +19,7 @@ class Login
 
 			$row = $result[0];
 
-			if ($password == $row['password']) 
+			if (sha1($password) == $row['password']) 
 			{
 				// creatwe session data
 				$_SESSION['fakebook_userid'] = $row['userid'];

@@ -49,12 +49,12 @@
 		<br>
 		<?php
 			if ($ROW['has_image'] == 0) {
-				echo'<span style="margin-left: -70px;margin-top: -20px;">' . $ROW['post'] . '</span>';
+				echo'<span style="margin-left: -70px;margin-top: -20px;">' . htmlspecialchars($ROW['post']) . '</span>';
 			}else
 			{
 
 				$image = $ROW['image'];
-				echo'<span style="margin-left: -70px;margin-top: 20px;">' . $ROW['post'] . '</span>';
+				echo'<span style="margin-left: -70px;margin-top: 20px;">' . htmlspecialchars($ROW['post']) . '</span>';
 				echo "<br><br>";
 				echo'<img src="data:image/jpeg;base64,' . base64_encode($image) . '" style="width: 700px; margin-left: -70px;"/>'; 
 			} 
