@@ -4,6 +4,7 @@
 	
 	$login = new Login();
 	$user_data = $login->check_login($_SESSION ['fakebook_userid']);
+	//used for the header
 	$USER = $user_data;				
 							// white listing to avoid sql injection
 	if (isset($_GET['id']) && is_numeric($_GET['id'])) 
@@ -33,8 +34,6 @@
 		{
 			header("Location: profile.php");
 			die;
-			# code...
-
 		}else
 		{
 			echo $errors;
@@ -103,19 +102,29 @@
 						//echo"<img id=$id src='$pro_pic' style''>";
 					}
 				?>
-					<br>
-				<a style="text-decoration: none; color: #a0f;" href="change_image.php?change=profile">
-					Change P.Picture
-				</a>|
-				<a style="text-decoration: none; color: #a0f;" href="change_image.php?change=cover">
-					Change Cover
-				</a>
+				<br>
+
+				<?php  
+					if ($USER['userid'] == $user_data['userid']) 
+					{
+						echo 	"<a style='text-decoration: none; color: #a0f;' 
+									href='change_image.php?change=profile'>
+								 	Change P.Picture 
+								</a> |	
+								<a 	style='text-decoration: none; color: #a0f;' 
+									href='change_image.php?change=cover'>
+									Change Cover 
+								</a>";
+					}
+				?>
+				
+
 			</span>
 			<div style="font-size: 20px;"> <?php  echo htmlspecialchars($user_data['firstname']) . " " .  htmlspecialchars($user_data['lastname']) ?></div>
 			<br>
 			
 			<div id="menu_button">
-				<a href="index.php">Timeline</a>
+				<a style="text-decoration: none; color: #405d9b;" href="index.php">Timeline</a>
 			</div>
 			<div id="menu_button">About</div>
 			<div id="menu_button">Friends</div>  

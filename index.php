@@ -5,6 +5,7 @@
 	
 	$login = new Login();
 	$user_data = $login->check_login($_SESSION ['fakebook_userid']);
+	// used for header
 	$USER = $user_data;	
 
 
