@@ -49,10 +49,9 @@
 					
 				?>
 			</div>
-		
+		<br><br>
 		<?php
 			if ($ROW['has_image'] == 0) {
-				echo "<br>";
 				echo'<span style="margin-left: -70px;margin-top: -20px;">' . htmlspecialchars($ROW['post']) . '</span>';
 			}else
 			{
@@ -60,7 +59,6 @@
 				$image = $ROW['image'];
 				if (!empty($ROW['post'])) 
 				{
-					echo "<br>";
 					echo'<span style="margin-left: -70px;margin-top: 20px;">' . htmlspecialchars($ROW['post']) . '</span>';
 					echo "<br><br>";
 				}
