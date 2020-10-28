@@ -8,6 +8,7 @@ class Login
 	{
 		$email = addslashes($data["email"]);
 		$password = addslashes($data["password"]);
+		$captcha = $data["captcha"];
 	
 		$query = "select * from users where email  = '$email' limit 1";
 
@@ -19,7 +20,7 @@ class Login
 
 			$row = $result[0];
 
-			if (sha1($password) == $row['password']) 
+			if (sha1($password) == $row['password'] && $captcha == $_SESSION['captcha']) 
 			{
 				// creatwe session data
 				$_SESSION['fakebook_userid'] = $row['userid'];
