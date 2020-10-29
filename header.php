@@ -1,4 +1,5 @@
-	<div id="blue_bar">
+<div id="blue_bar">
+	<form method="get" action="search.php">
 
 		<div style="width: 1000px; margin: auto; font-size: 30px;">
 
@@ -6,7 +7,7 @@
 			<a style="color: #d0d8e4;text-decoration: none;" href="index.php">Fakebook</a> 
 			&nbsp &nbsp
 			<!-- Search box -->
-			<input type="text" name="" id="search_box" placeholder="Search">
+			<input type="text" name="find" id="search_box" placeholder="Search">
 
 			<!-- search type -->
 			<select name="search_type" style="	height: 30px; width: 140px; border-radius: 4px; border: solid 1px #ccc;	padding: 4px; font-size: 14px; margin-right: 30px;">
@@ -41,4 +42,5 @@
 			<span style="font-size: 13px; float: right; margin-top: 15px; margin-right: 10px; color: white"> Logout </span>
 			</a>
 		</div>
-	</div>
+	</form>
+</div>

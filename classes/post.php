@@ -86,6 +86,47 @@ class Post
 		}
 	}
 
+	public function search($find, $type)
+	{
+		$types[] = "By Sentence";
+		$types[] = "By Booleans";
+		$types[] = "By Relevance";
+
+		if (in_array($type, $types) && !empty($find)) 
+		{
+			
+			$query = "";
+			$DB = new database();
+			
+			if ($type == "By Sentence") {
+				$query = "SELECT * FROM posts WHERE MATCH (post) AGAINST ('". $find ."' IN NATURAL LANGUAGE MODE)";
+				return $DB->read($query);
+			}
+			if ($type == "By Booleans") {
+				$query = "";
+
+				echo "<pre>";
+				print_r($result);
+				echo "</pre>";
+			}
+			if ($type == "By Relevance") {
+				$query = "SELECT COUNT(*) FROM posts WHERE MATCH (post) AGAINST ('". $find ."' IN NATURAL LANGUAGE MODE)";
+				
+				$result = $DB->read($query);
+				$result = $result[0]['COUNT(*)'] ;
+
+				echo "<pre>";
+				print_r($result);
+				echo "</pre>";
+				
+				return $result;
+
+			}
+			
+		}
+	}
+
+
 	public function timeline()
 	{
 
@@ -105,7 +146,7 @@ class Post
 
 	public function like_post($id, $type, $userid)
 	{
-	//	if ($tpe == "post") {
+	//	if ($type == "post") {
 //
 //			// increment the likes in the posts table
 //			$query = "update posts set likes = likes + 1 where postid = '$id' limit 1";
