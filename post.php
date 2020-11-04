@@ -1,5 +1,6 @@
 <div id="post" style="
 		margin-left: -10px;
+		margin-right: -10px;
 		padding: 25px;
 		font-size: 16px;
 		margin-bottom: 40px;
