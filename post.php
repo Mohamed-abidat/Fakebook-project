@@ -81,9 +81,9 @@
 				{
 				//	<a href="" style="text-decoration: none; color: #405d9b;">
 					echo   "<sapn style= 'color: #999; float: right;'> 
-							<a href='' style='text-decoration: none; color: #405d9b;'> 
+							<a href='edit.php?id=$ROW[postid]'' style='text-decoration: none; color: #405d9b;'> 
 							Edit </a> . 
-							<a href='' style='text-decoration: none; color: #405d9b;'>
+							<a href='delete.php?id=$ROW[postid]' style='text-decoration: none; color: #405d9b;'>
 							Delete </a>
 							</span>";
 				}

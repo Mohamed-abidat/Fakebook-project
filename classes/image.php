@@ -151,26 +151,31 @@ class Image
 	{
 
         $image = imagecreatetruecolor(200, 50);
-        // affichage image
+        
+        
         $background_color = imagecolorallocate($image, 255, 255, 255);
         imagefilledrectangle($image,0,0,200,50,$background_color);
+        
         // distortion
         $line_color = imagecolorallocate($image, 64,64,64);
         for($i=0;$i<6;$i++) 
         {
           imageline($image,0,rand()%50,200,rand()%50,$line_color);
         }
+        
         // dot display
         $pixel_color = imagecolorallocate($image, 0,0,255);
         for($i=0;$i<1000;$i++) 
         {
 		    imagesetpixel($image,rand()%200,rand()%50,$pixel_color);
         }
-        // display letters
+        
+        // characters
         $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
         $len = strlen($letters);
+        
         //~ $letter = $letters[rand(0, $len-1)];
-        $text_color = imagecolorallocate($image, 0,0,0);
+        $text_color = imagecolorallocate($image, 255,0,0);
 
         $word = "";
         for ($i = 0; $i< 6;$i++)

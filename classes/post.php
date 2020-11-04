@@ -86,6 +86,40 @@ class Post
 		}
 	}
 
+
+	public function get_post($postid)
+	{
+		if (!is_numeric($postid)) {
+			return false;
+		}
+
+		$query = "select * from posts where postid = '$postid' limit 1" ;
+
+		$DB = new database();
+		$result = $DB->read($query);
+
+		if ($result)
+		{
+			return $result[0];
+		}else
+		{
+			return false;
+		}
+	}	
+
+	public function delete_post($postid)
+	{
+		if (!is_numeric($postid)) {
+			return false;
+		}
+
+		$query = "delete from posts where postid = '$postid' limit 1" ;
+
+		$DB = new database();
+		$result = $DB->save($query);
+
+	}
+
 	public function search($find, $type)
 	{
 		$types[] = "By Sentence";
