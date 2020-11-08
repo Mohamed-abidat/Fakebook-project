@@ -147,6 +147,13 @@ class Image
 		}
 	}
 
+
+	public function get_thumbnail($image)
+	{
+
+		//return $this->crop_image($image, 70,70);
+	}
+
 	public function captcha()
 	{
 

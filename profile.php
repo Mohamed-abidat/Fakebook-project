@@ -99,7 +99,6 @@
 					}else
 					{
 						echo'<img id="profile_pic" src="data:image/jpeg;base64,' . base64_encode($pro_pic) . '"/>';
-						//echo"<img id=$id src='$pro_pic' style''>";
 					}
 				?>
 				<br>
@@ -127,13 +126,15 @@
 				<a style="text-decoration: none; color: #405d9b;" href="index.php">Timeline</a>
 			</div>
 			<div id="menu_button">About</div>
-			<div id="menu_button">Friends</div>  
+			<a href="friends.php">
+				<div id="menu_button">Friends</div>  
+			</a>
 			<div id="menu_button">Photos</div> 
 			<div id="menu_button">Settings</div>
 		</div>
 
 		<!--below cover box -->
-		<div style="display: flex;">
+		<div style="display: flex; flex-direction: column;">
 
 			<!--friends suggestion -->
 			<div style="flex: 1;">	
