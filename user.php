@@ -1,5 +1,5 @@
 <div id="friends">
-
+	<a style ="text-decoration: none; color: #405d9b;" href="profile.php?id=<?php echo $SUGGESTION_ROW['userid']; ?>">
 		<?php 
 			error_reporting(-1);
 		    ini_set('display_errors', 'On');
@@ -21,5 +21,5 @@
 				echo $SUGGESTION_ROW['firstname'] . " " . $SUGGESTION_ROW['lastname'];
 			}						
 		?>
-		
+	</a>
 </div>
