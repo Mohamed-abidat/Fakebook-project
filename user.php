@@ -1,11 +1,10 @@
 <div id="friends">
-	<a style ="text-decoration: none; color: #405d9b;" href="profile.php?id=<?php echo $SUGGESTION_ROW['userid']; ?>">
+
 		<?php 
 			error_reporting(-1);
 		    ini_set('display_errors', 'On');
 
-			$userid 	= $SUGGESTION_ROW['profile_image'];
-			$pro_pic 	= $SUGGESTION_ROW['profile_image'];;
+			$pro_pic 	= $SUGGESTION_ROW['thumb'];;
 			$first 		= $SUGGESTION_ROW['firstname'][0];
 			$last 		= $SUGGESTION_ROW['lastname'][0];
 			$dot 		= '.';
@@ -22,5 +21,5 @@
 				echo $SUGGESTION_ROW['firstname'] . " " . $SUGGESTION_ROW['lastname'];
 			}						
 		?>
-	</a>	
+		
 </div>

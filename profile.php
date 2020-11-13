@@ -125,21 +125,27 @@
 			<div id="menu_button">
 				<a style="text-decoration: none; color: #405d9b;" href="index.php">Timeline</a>
 			</div>
-			<div id="menu_button">About</div>
-			<a href="friends.php">
-				<div id="menu_button">Friends</div>  
-			</a>
-			<div id="menu_button">Photos</div> 
-			<div id="menu_button">Settings</div>
+			<div id="menu_button">
+				<a style="text-decoration: none; color: #405d9b;" href="">About</a>
+			</div>
+			<div id="menu_button">
+				<a style="text-decoration: none; color: #405d9b;" href="friends.php">Friends</a>
+			</div>
+			<div id="menu_button">
+				<a style="text-decoration: none; color: #405d9b;" href=".php">Photos</a>
+			</div>
+			<div id="menu_button">
+				<a style="text-decoration: none; color: #405d9b;" href=".php">Setting</a>
+			</div>
 		</div>
 
 		<!--below cover box -->
-		<div style="display: flex; flex-direction: column;">
+		<div style="display: flex;">
 
 			<!--friends suggestion -->
 			<div style="flex: 1;">	
 				<div id="suggestions">
-					FRIENDS <br><br>
+					Friends <br><br>
 					<?php
 						if ($suggestions) 
 						{

@@ -5,18 +5,22 @@
 
 			<!-- Logo -->
 			<a style="color: #d0d8e4;text-decoration: none;" href="index.php">Fakebook</a> 
-			&nbsp &nbsp
+			&nbsp &nbsp&nbsp &nbsp&nbsp
+
+
 			<!-- Search box -->
 			<input type="text" name="find" id="search_box" placeholder="Search">
 
 			<!-- search type -->
-			<select name="search_type" style="	height: 30px; width: 140px; border-radius: 4px; border: solid 1px #ccc;	padding: 4px; font-size: 14px; margin-right: 30px;">
+			<select id="searchbox" name="search_type" style="height: 30px; width: 140px; border-radius: 4px; border: solid 1px #ccc;	padding: 4px; font-size: 14px; margin-right: 30px;">
 
 				<option>By Sentence</option>
 				<option>By Booleans</option>
 				<option>By Relevance</option>
 
 			</select>
+
+
 			<!-- user info -->
 			<a href="profile.php">
 				<?php
@@ -24,7 +28,7 @@
 				    ini_set('display_errors', 'On');
 
 					$userid 	= $USER['userid'];
-					$pro_pic 	= $USER['profile_image'];;
+					$pro_pic 	= $USER['thumb'];;
 					$first 		= $USER['firstname'][0];
 					$last 		= $USER['lastname'][0];
 					$dot = '.';

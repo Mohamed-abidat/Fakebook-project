@@ -53,7 +53,7 @@
 						$post->create_post($userid, $_POST, $_FILES, 0, 1);
 
             			$image = new Image();
-            			$image->crop_image($file,1366,488);
+            			$image->resize_image($file,1366,488);
             			$image_blob = file_get_contents($file);
             			$query = "UPDATE users SET cover_image= '" . addslashes($image_blob). "' WHERE userid = '$userid'";	
             		}else
@@ -63,9 +63,13 @@
 						$post->create_post($userid, $_POST, $_FILES, 1, 0);
 
             			$image = new Image();
-            			$image->crop_image($file,800,800);	
+            			$image->resize_image($file,800,800);	
             			$image_blob = file_get_contents($file);
-            			$query = "UPDATE users SET profile_image= '" . addslashes($image_blob). "' WHERE userid = '$userid'";
+
+
+            			$image->get_thumbnail($file);	
+            			$thumb = file_get_contents($file);
+            			$query = "UPDATE users SET profile_image= '" . addslashes($image_blob). "', thumb= '" . addslashes($thumb). "' WHERE userid = '$userid'";
 
             		}
             		           		

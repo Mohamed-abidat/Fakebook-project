@@ -3,7 +3,7 @@
 class Image
 {
 
-	public function crop_image($file, $max_width,$max_height)
+	public function resize_image($file, $max_width,$max_height)
 	{
 
 		if (file_exists($file)) {
@@ -148,10 +148,20 @@ class Image
 	}
 
 
-	public function get_thumbnail($image)
+	public function get_thumbnail($file)
 	{
 
-		//return $this->crop_image($image, 70,70);
+		$original_image = imagecreatefromjpeg($file);
+
+		//resolution
+		$original_width = imagesx($original_image);
+		$original_height = imagesy($original_image);			
+		
+		$new_image = imagecreatetruecolor(70, 70);
+		imagecopyresampled($new_image, $original_image, 0, 0,0, 0, 70, 70, $original_width, $original_height);
+		imagejpeg($new_image,$file,90);
+	
+
 	}
 
 	public function captcha()
