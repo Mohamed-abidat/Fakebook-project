@@ -37,7 +37,29 @@ class User
 		{
 			return false;
 		}
-	}	public function get_suggestions($id)
+	}	
+
+	public function get_suggestions($id)
+	{
+
+		$user = $this->get_user($id);
+
+
+		$query = "select * from users where userid != '$id' and firstname sounds like '" . $user['firstname'] .  "' or userid != '$id' and lastname sounds like '" . $user['lastname'] . "'";
+
+		$DB = new Database();
+		$result = $DB->read($query);
+
+		if ($result) 
+		{
+			return $result;
+		}else
+		{
+			return false;
+		}
+	}
+
+	public function get_friends($id)
 	{
 
 		$query = "select * from users where userid != '$id' ";

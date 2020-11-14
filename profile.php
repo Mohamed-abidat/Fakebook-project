@@ -145,7 +145,7 @@
 			<!--friends suggestion -->
 			<div style="flex: 1;">	
 				<div id="suggestions">
-					Friends <br><br>
+					People you might know <br><br>
 					<?php
 						if ($suggestions) 
 						{

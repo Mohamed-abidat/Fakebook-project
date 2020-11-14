@@ -17,6 +17,7 @@
 				<option>By Sentence</option>
 				<option>By Booleans</option>
 				<option>By Relevance</option>
+				<option>By counting</option>
 
 			</select>
 

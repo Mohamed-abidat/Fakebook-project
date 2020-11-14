@@ -125,6 +125,7 @@ class Post
 		$types[] = "By Sentence";
 		$types[] = "By Booleans";
 		$types[] = "By Relevance";
+		$types[] = "By counting";
 
 		if (in_array($type, $types) && !empty($find)) 
 		{
@@ -137,28 +138,29 @@ class Post
 				return $DB->read($query);
 			}
 			if ($type == "By Booleans") {
-				$query = "";
-
-				echo "<pre>";
-				print_r($result);
-				echo "</pre>";
+				$query = "SELECT * FROM posts WHERE MATCH (post) AGAINST ('". $find ."' IN BOOLEAN MODE);";
+				return $DB->read($query);
 			}
-			if ($type == "By Relevance") {
+			if ($type == "By counting") {
 				$query = "SELECT COUNT(*) FROM posts WHERE MATCH (post) AGAINST ('". $find ."' IN NATURAL LANGUAGE MODE)";
 				
 				$result = $DB->read($query);
 				$result = $result[0]['COUNT(*)'] ;
-
-				echo "<pre>";
-				print_r($result);
-				echo "</pre>";
 				
 				return $result;
 
 			}
+
+				if ($type == "By Relevance") {
+				$query = "SELECT * , MATCH (post) AGAINST ('". $find ."' IN NATURAL LANGUAGE MODE) AS score FROM posts order by score desc";
+				
+				return $DB->read($query);
+
+				}
 			
-		}
+			}
 	}
+
 
 
 	public function timeline()

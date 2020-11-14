@@ -30,7 +30,7 @@
 	$user = new User();
 	$id = $_SESSION['fakebook_userid'];
 
-	$suggestions = $user->get_suggestions($id)
+	$suggestions = $user->get_friends($id)
 
 
 ?>
